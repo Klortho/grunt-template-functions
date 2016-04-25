@@ -1,16 +1,17 @@
 # grunt-template-functions
 
 ----
-This is not done. The basic mechanism works, but I have to implement getters
+*This is not done. The basic mechanism works, but I have to implement getters
 such that when templates refer to each other recursively, they are recursively
-resolved. See test/Gruntfile.js.
+resolved. See test/Gruntfile.js.*
+
 ----
 
 The first time I looked at Grunt template strings, I was a bit appalled, 
 because, you know, JavaScript is functional, right? Shouldn't we be able to use
 real functions there?
 
-The trick, of course, is that these functions are referencing, in many cases,
+The difficult bit, though, is that these functions can reference
 properties that haven't been instantiated yet. Also, they can reference each
 other, recursively, and so they have to be evaluated that way, too.
 
@@ -25,9 +26,9 @@ You'd define it like this:
 
     dest: t(()=> 'dist-' + c.version)
 
-That doesn't look like an improvement, but, that's the most trivial case. 
-Since it's JavaScript, you can write any code you want, and return any kind of
-object.
+That doesn't look like an improvement, I know! But, that's the most trivial case,
+and, because it's JavaScript, you can write any code you want, and return any 
+kind of object.
 
 Here's what a complete Gruntfile would look like:
 
